@@ -15,6 +15,12 @@ export interface BannerStartProps {
 }
  
 const BannerStart: React.SFC<BannerStartProps> = () => {
+
+    function handleContactMe(){
+        const url = configSystem.saibaMais;
+        window.open(url, '_blank')
+    }
+
     return <div className='container'>
             <style jsx>
                 {`
@@ -28,6 +34,7 @@ const BannerStart: React.SFC<BannerStartProps> = () => {
                         grid-row:1/2;
                         background-image:url(${BANNER_START});
                         background-size:cover;
+                        background-position: center;
                         height:${VIEW_HEIGHT};
                         -webkit-filter: blur(${DESFOQUE});
                         -moz-filter: blur(${DESFOQUE});
@@ -55,6 +62,7 @@ const BannerStart: React.SFC<BannerStartProps> = () => {
                         background-color: ${FAIXA_BG_COLOR};
                         padding:2rem;
                         border-radius:6px;
+                        cursor: pointer;
                     }
                     .text1{
                         font-size:3rem;
@@ -66,14 +74,37 @@ const BannerStart: React.SFC<BannerStartProps> = () => {
                     .text3{
                         font-size:1.5rem;
                     }
+                    @media (max-width:800px){
+                        .text1{
+                            font-size:2rem;
+                        }
+                        .text2{
+                            font-size:1.5rem;
+                        }
+                        .text3{
+                            font-size:1rem;
+                        }
+                    }
+                    @media (max-width:540px){
+                        .text1{
+                            font-size:1.5rem;
+                        }
+                        .text2{
+                            font-size:1rem;
+                        }
+                        .text3{
+                            font-size:1rem;
+                        }
+                    }
                 `}
             </style>
             <div className='fundo' />
             <div className='frente'>
-                <div className='texts'>
-                    <div className='text1'>Sorteio de vários Amigurumi</div>
-                    <div className='text2'>São 32 peças de uma vez</div>
-                    <div className='text3'>Valor de R$ 20,00</div>
+                <div className='texts' onClick={handleContactMe} title='Clique aqui para saber mais'>
+                    <div className='text1'>{configSystem.bannerText.text1}</div>
+                    <div className='text2'>{configSystem.bannerText.text2}</div>
+                    <div className='text3'>{configSystem.bannerText.text3}</div>
+                    <div>Clique aqui</div>
                 </div>
             </div>
         </div>

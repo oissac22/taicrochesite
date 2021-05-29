@@ -9,6 +9,7 @@ const configSystem = {
         text3: 'Valor de R$ 20,00'
     },
 
+    saibaMais: 'https://www.instagram.com/_linhasepontosami/'
 
 }
 
